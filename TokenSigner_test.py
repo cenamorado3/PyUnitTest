@@ -3,7 +3,6 @@ from AngularWeb.src.app.WebServer.TokenSigner import TokenSigner
 import datetime
 
 class TestTokenSigner(unittest.TestCase):
-    
     def test_TemporalAnomalityDetectorResolve(self):
         signer = TokenSigner()
         x = signer.TemporalAnomality(datetime.datetime.now())
@@ -31,6 +30,12 @@ class TestTokenSigner(unittest.TestCase):
         x = signer.ParseTime(datetime.datetime.now() + datetime.timedelta(minutes = 9))
         y = [datetime.datetime.now().hour, datetime.datetime.now().minute + 9]
         self.assertEquals(x, y)
+    
+    
+    def test_AddDissonance(self):
+        signer = TokenSigner()
+        x = signer.AddDissonance(9304340)
+        self.assertNotEquals(x, 9304340, msg= 'After Dissonance: {0}'.format(x))
         
 if __name__ == '__main__':
     unittest.main()

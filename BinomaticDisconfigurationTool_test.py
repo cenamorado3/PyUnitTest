@@ -22,6 +22,11 @@ class TestBinomaticDisconfigurationTool(unittest.TestCase):
         self.assertEqual(bN, a.LeftShift(b))
         self.assertEqual(a.ConvertToBinaryArray(bN), a.ConvertToBinaryArray(a.LeftShift(b)))
 
+    def test_Flip(self):
+        a = BinomaticDisconfigurationTool()
+        x = 1
+        self.assertEqual(a.Flip(x), ~1, msg='Flipped {0}'.format(a.Flip(x)))
+
     def test_Unpack(self):
         a = BinomaticDisconfigurationTool()
         x = ['000010', '000000', '001001', '000000', '000000', '000000', '000000', '000000']
