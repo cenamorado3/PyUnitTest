@@ -3,14 +3,14 @@ from AngularWeb.src.app.WebServer.TokenSigner import TokenSigner
 import datetime
 
 class TestTokenSigner(unittest.TestCase):
-    def test_TemporalAnomalityDetectorResolve(self):
+    def test_TemporalAnomalyDetectorResolve(self):
         signer = TokenSigner()
-        x = signer.TemporalAnomality(datetime.datetime.now())
+        x = signer.TemporalAnomaly(datetime.datetime.now())
         self.assertFalse(x)
 
-    def test_TemporalAnomalityDetectorReject(self):
+    def test_TemporalAnomalyDetectorReject(self):
         signer = TokenSigner()
-        x = signer.TemporalAnomality(datetime.datetime.now() + datetime.timedelta(minutes = -21))
+        x = signer.TemporalAnomaly(datetime.datetime.now() + datetime.timedelta(minutes = -21))
         self.assertTrue(x)
 
     def test_SignReject(self):
